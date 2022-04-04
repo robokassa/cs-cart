@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>csc_robokassa_changes</id>
+    <name>[CS-Coding]: Robokassa International</name>
+    <description>Позволяет скрывать платежные способы Robokassa в зависимости от выбранной валюты (только если используются рубли и тенге)</description>
+    <status>active</status>
+    <version>1</version>
+    <priority>999</priority>
+    <has_icon>Y</has_icon>
+
+    <authors>
+        <author>
+            <name>CS-Coding</name>
+            <email>manager@cs-coding.com</email>
+            <url>http://store.cs-coding.ru</url>
+            <phone>+7 909 361 15 10</phone>
+        </author>
+    </authors>
+</addon>

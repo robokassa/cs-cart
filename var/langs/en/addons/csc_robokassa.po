@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-cart-latest\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: cs-cart-latest\n"
+"X-Crowdin-Language: en\n"
+"X-Crowdin-File: /addons/csc_robokassa.po\n"
+"Last-Translator: cscart <manager@cs-coding.com>\n"
+"PO-Revision-Date: 2017-12-19 09:00-0500\n"
+
+msgctxt "Addons::name::csc_robokassa"
+msgid "[CS-Coding]: Robokassa for Multi-Vendor"
+msgstr "[CS-Coding]: Robokassa for Multi-Vendor"
+
+msgctxt "Addons::description::csc_robokassa"
+msgid "Allows to use Robokassa payment gateway with split payment"
+msgstr "Allows to use Robokassa payment gateway with split payment</a>"
+
+msgctxt "SettingsOptions::csc_robokassa::licensekey"
+msgid "License Key"
+msgstr "License Key"
+
+msgctxt "Languages::robokassa_encoding"
+msgid "Encoding"
+msgstr "Encoding"
+
+msgctxt "Languages::mode"
+msgid "Mode"
+msgstr "Mode"
+
+msgctxt "Languages::csc_method"
+msgid "Method"
+msgstr "Method"
+
+msgctxt "Languages::status_paid"
+msgid "Order status Paid"
+msgstr "Order status Paid"
+
+msgctxt "Languages::ru_settings"
+msgid "Russia settings"
+msgstr "Russia settings"
+
+msgctxt "Languages::kz_settings"
+msgid "Kazahkstan settings"
+msgstr "Kazahkstan settings"
+
+msgctxt "Languages::russia_settings"
+msgid "Russia settings"
+msgstr "Russia settings"
+
+msgctxt "Languages::rub_currency"
+msgid "Rub currency"
+msgstr "Rub currency"
+
+msgctxt "Languages::kzt_currency"
+msgid "Tenge currency"
+msgstr "Tenge currency"
+
+msgctxt "Languages::russia"
+msgid "Russia"
+msgstr "Russia"
+
+msgctxt "Languages::kazakhstan"
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgctxt "Languages::csc_split"
+msgid "Turn split on"
+msgstr "Turn split on"
+
+msgctxt "Languages::receipt_created"
+msgid "Receipt created"
+msgstr "Receipt created"
+
+msgctxt "Languages::csc_payment_method"
+msgid "Признак способа расчёта"
+msgstr "Признак способа расчёта"
+
+msgctxt "Languages::full_prepayment"
+msgid "Предоплата 100%. Полная предварительная оплата до момента передачи предмета расчёта"
+msgstr "Предоплата 100%. Полная предварительная оплата до момента передачи предмета расчёта"
+
+msgctxt "Languages::full_payment"
+msgid "Полный расчёт. Полная оплата, в том числе с учетом аванса (предварительной оплаты) в момент передачи предмета расчёта"
+msgstr "Полный расчёт. Полная оплата, в том числе с учетом аванса (предварительной оплаты) в момент передачи предмета расчёта"
+
+msgctxt "Languages::crc_wrong"
+msgid "Incorrect hashsum"
+msgstr "Incorrect hashsum"
+
+msgctxt "Languages::merchantid"
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+msgctxt "Languages::split"
+msgid "Split"
+msgstr "Split"
+
+msgctxt "Languages::robokassa"
+msgid "Robokassa"
+msgstr "Robokassa"
+
+msgctxt "Languages::csc_robokassa_response_not_received"
+msgid "Response is not received"
+msgstr "Response is not received"
+
+msgctxt "Languages::csc_robokassa_commission"
+msgid "Commission"
+msgstr "Commission"
+
+msgctxt "Languages::csc_tax_type"
+msgid "Tax Type"
+msgstr "Tax Type"
+
+msgctxt "Languages::password1"
+msgid "Password 1"
+msgstr "Password 1"
+
+msgctxt "Languages::password2"
+msgid "Password 2"
+msgstr "Password 2"
+
+msgctxt "Languages::csc_vat0"
+msgid "VAT 0%"
+msgstr "VAT 0%"
+
+msgctxt "Languages::csc_vat10"
+msgid "VAT 10%"
+msgstr "VAT 10%"
+
+msgctxt "Languages::csc_vat12"
+msgid "VAT 12%"
+msgstr "VAT 12%"
+
+msgctxt "Languages::csc_vat18"
+msgid "VAT 18%"
+msgstr "VAT 18%"
+
+msgctxt "Languages::csc_vat20"
+msgid "VAT 20%"
+msgstr "VAT 20%"
+
+msgctxt "Languages::csc_vat110"
+msgid "VAT 10/110"
+msgstr "VAT 10/110"
+
+msgctxt "Languages::csc_vat118"
+msgid "VAT 18/118"
+msgstr "VAT 18/118"
+
+msgctxt "Languages::csc_vat120"
+msgid "VAT 20/120"
+msgstr "VAT 20/120"
