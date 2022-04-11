@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<addon scheme="3.0">
+<addon scheme="2.0">
     <id>csc_robokassa_changes</id>
     <name>[CS-Coding]: Robokassa International</name>
     <description>Позволяет скрывать платежные способы Robokassa в зависимости от выбранной валюты (только если используются рубли и тенге)</description>
