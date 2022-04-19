@@ -2,7 +2,7 @@
 <addon scheme="3.0">
     <id>csc_robokassa</id>
     <status>active</status>
-    <version>1</version>
+    <version>1.0</version>
     <priority>9999</priority>
     <has_icon>Y</has_icon>
 
@@ -14,6 +14,8 @@
             <phone>+7 909 361 15 10</phone>
         </author>
     </authors>
+    <supplier>CS-Coding</supplier>
+    <supplier_link>http://store.cs-coding.ru</supplier_link>
 
     <functions>
         <item for="install">fn_csc_robokassa_install</item>
@@ -25,10 +27,7 @@
             ALTER TABLE `?:companies` ADD `csc_robokassa_merchant_id` VARCHAR(100) NOT NULL, ADD `csc_robokassa_split` VARCHAR(1) NOT NULL;
         </item>
         <item for="uninstall">
-            ALTER TABLE `?:companies` DROP `csc_robokassa_merchant_id`, `csc_robokassa_split`;
+            ALTER TABLE `?:companies` DROP `csc_robokassa_merchant_id`, DROP `csc_robokassa_split`;
         </item>
-
-        <item for="install">ALTER TABLE ?:taxes ADD COLUMN tax_type VARCHAR(6) NOT NULL</item>
-        <item for="uninstall">ALTER TABLE ?:taxes DROP COLUMN tax_type</item>
     </queries>
 </addon>

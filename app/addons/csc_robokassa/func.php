@@ -20,16 +20,10 @@ function fn_csc_robokassa_install() {
     } else {
         db_query('UPDATE ?:payment_processors SET ?u WHERE processor_id = ?i', $processor_data, $processor_id);
     }
-}
 
-function fn_csc_allow_robokassa_split($cart) {
-    foreach($cart['product_groups'] as $group) {
-        if (!(bool) db_get_row('select csc_robokassa_split, csc_robokassa_merchant_id from ?:companies where company_id = ?i and csc_robokassa_split = "Y" and not csc_robokassa_merchant_id = ""', $group['company_id'])) {
-            return false;
-        }
+    if (!(bool) db_get_field('select addon from ?:addons where addon = "rus_taxes"')) {
+        db_query("ALTER TABLE ?:taxes ADD tax_type VARCHAR(6) NOT NULL");
     }
-
-    return true;
 }
 
 function fn_csc_robokassa_uninstall() {
@@ -49,5 +43,21 @@ function fn_csc_robokassa_uninstall() {
         db_query('DELETE FROM ?:payment_processors WHERE admin_template = ?s', $processor_data['admin_template']);
     }
 
-    fn_rus_payments_disable_payments($processors, true);
+    if (function_exists('fn_rus_payments_disable_payments')) {
+        fn_rus_payments_disable_payments($processors, true);
+    }
+
+    if (!(bool) db_get_field('select addon from ?:addons where addon = "rus_taxes"')) {
+        db_query("ALTER TABLE ?:taxes DROP tax_type");
+    }
+}
+
+function fn_csc_allow_robokassa_split($cart) {
+    foreach($cart['product_groups'] as $group) {
+        if (!(bool) db_get_row('select csc_robokassa_split, csc_robokassa_merchant_id from ?:companies where company_id = ?i and csc_robokassa_split = "Y" and not csc_robokassa_merchant_id = ""', $group['company_id'])) {
+            return false;
+        }
+    }
+
+    return true;
 }
