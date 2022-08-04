@@ -40,7 +40,7 @@ class CscRobokassa {
                     'sum'      => $product['subtotal'],
                     'payment_method' => $this->_payment_method,
                     'payment_object' => 'commodity',
-                    'tax'      => $product['tax_type'],
+                    'tax'      => !empty($product['tax_type']) ? $product['tax_type'] : 'none',
                 ];
             }
             elseif ($this->_country == "KZ") {
@@ -48,7 +48,7 @@ class CscRobokassa {
                     'name'     => $this->truncateItemReceiptName($product['product']),
                     'quantity' => $product['amount'],
                     'sum'      => $product['subtotal'],
-                    'tax'      => $product['tax_type'],
+                    'tax'      => !empty($product['tax_type']) ? $product['tax_type'] : 'none',
                 ];
             }
         }
@@ -137,7 +137,7 @@ class CscRobokassa {
                 'name' => $this->truncateItemReceiptName($product['product']),
                 'quantity' => $product['amount'],
                 'sum' => $product['subtotal'],
-                'tax' => $product['tax_type'],
+                'tax' => !empty($product['tax_type']) ? $product['tax_type'] : 'none',
                 'product_code' => $product['product_code'], //tmp value for category commission
                 'tax_sum' => $product['tax_value'], //tmp value for category commission
             ];
@@ -257,6 +257,9 @@ class CscRobokassa {
             $product['tax_ids'] = explode(',', db_get_field('select tax_ids from ?:products where product_id = ?i', $product['product_id']));
             if (!empty($product['tax_ids'])) {
                 $product['tax_type'] = $this->getTaxType(current($product['tax_ids']));
+                if (empty($product['tax_type'])) {
+					$product['tax_type'] = 'none';
+				}
             }
             $_shipping_mod = $this->_order_info['shipping_cost'] / sizeof($this->_order_info['products']);
             if (!empty($this->_order_info['subtotal_discount'])) {
