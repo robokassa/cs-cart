@@ -42,17 +42,16 @@ function fn_csc_robokassa_change_order_status($status_to, $status_from, $order_i
 				}
 
 				$order_payout = reset($order_payout);
+                $payout_params = array(
+                    'payout_type'     => VendorPayoutTypes::WITHDRAWAL,
+                    'payout_amount'   => $order_payout['order_amount'] - $order_payout['commission_amount'],
+                    'comments'        => '',
+                    'company_id'      => $company_id,
+                    'order_id'        => $order_info['order_id'],
+                    'approval_status' => VendorPayoutApprovalStatuses::COMPLETED,
+                );
 
-				$payout_params = array(
-					'payout_type'     => VendorPayoutTypes::WITHDRAWAL,
-					'payout_amount'   => $order_payout['order_amount'],
-					'comments'        => '',
-					'company_id'      => $company_id,
-					'order_id'        => $order_info['order_id'],
-					'approval_status' => VendorPayoutApprovalStatuses::COMPLETED,
-				);
-
-				$payouts_manager->update($payout_params);
+                $payouts_manager->update($payout_params);
 
 				// mark payout as requested
 				db_replace_into('order_data', array(
