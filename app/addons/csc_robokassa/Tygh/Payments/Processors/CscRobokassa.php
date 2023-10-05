@@ -80,6 +80,7 @@ class CscRobokassa {
             }
         }
         elseif ($this->_country == "KZ") {
+            $url = 'https://auth.robokassa.kz/Merchant/Index.aspx';
             if (!in_array(CART_PRIMARY_CURRENCY, ['USD', 'EUR', 'RUB']) && CART_PRIMARY_CURRENCY != 'KZT') {
                 $total = fn_format_price_by_currency($total, CART_PRIMARY_CURRENCY, 'KZT');
             }
@@ -91,6 +92,7 @@ class CscRobokassa {
                     $outsum_currency = CART_PRIMARY_CURRENCY;
                 }
             }
+
         }
 
         $crc = $this->_merchantid . ':' . $total . ':' . $this->_order_info['order_id'] . ':';
@@ -258,8 +260,8 @@ class CscRobokassa {
             if (!empty($product['tax_ids'])) {
                 $product['tax_type'] = $this->getTaxType(current($product['tax_ids']));
                 if (empty($product['tax_type'])) {
-					$product['tax_type'] = 'none';
-				}
+                    $product['tax_type'] = 'none';
+                }
             }
             $_shipping_mod = $this->_order_info['shipping_cost'] / sizeof($this->_order_info['products']);
             if (!empty($this->_order_info['subtotal_discount'])) {
