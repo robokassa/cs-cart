@@ -13,8 +13,8 @@ msgstr ""
 "PO-Revision-Date: 2017-12-19 09:00-0500\n"
 
 msgctxt "Addons::name::csc_robokassa"
-msgid "[CS-Coding]: Robokassa for Multi-Vendor"
-msgstr "[CS-Coding]: Robokassa для Multi-Vendor"
+msgid "[Robokassa-official]: Robokassa for Multi-Vendor"
+msgstr "[Robokassa-official]: Robokassa для Multi-Vendor"
 
 msgctxt "Addons::description::csc_robokassa"
 msgid "Allows to use Robokassa payment gateway with split payment"
