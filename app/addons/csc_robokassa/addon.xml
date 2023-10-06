@@ -8,14 +8,14 @@
 
     <authors>
         <author>
-            <name>CS-Coding</name>
-            <email>manager@cs-coding.com</email>
+            <name>Robokassa</name>
+          <!--  <email>manager@cs-coding.com</email>
             <url>http://store.cs-coding.ru</url>
-            <phone>+7 909 361 15 10</phone>
+            <phone>+7 909 361 15 10</phone>-->
         </author>
     </authors>
-    <supplier>CS-Coding</supplier>
-    <supplier_link>http://store.cs-coding.ru</supplier_link>
+    <supplier>Robokassa</supplier>
+   <!-- <supplier_link>http://store.cs-coding.ru</supplier_link>-->
 
     <functions>
         <item for="install">fn_csc_robokassa_install</item>
