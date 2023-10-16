@@ -52,6 +52,18 @@ class CscRobokassa {
                 ];
             }
         }
+        //shipping
+        foreach (@$this->_order_info['shipping'] as $shipping) {
+            $tax_id = current(array_keys($shipping['taxes']));
+            $tax_sum = $shipping['taxes'][$tax_id]['tax_subtotal'];
+            $sum = number_format($shipping['rate'] + $tax_sum, 2, '.', '');
+            $receipt_result['items'][] = [
+                'name' => __("shipping"),
+                'quantity' => 1,
+                'sum' => $sum,
+                'tax' => !empty($tax['tax_type']) ? $tax['tax_type'] : 'none',
+            ];
+        }
 
         return $receipt_result;
     }
