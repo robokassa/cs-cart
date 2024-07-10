@@ -111,15 +111,17 @@ class CscRobokassa {
         if (!empty($outsum_currency)) {
             $crc .= $outsum_currency . ':';
         }
-        $crc .= $receipt . ':' . $this->_password1;
+        $crc .= $receipt . ':' . $this->_password1 . ':' . 'shp_label=official_cscart';
         $crc = md5($crc);
 
         $post_data = [
             'MrchLogin' => $this->_merchantid,
             'OutSum' => $total,
             'InvId' => $this->_order_info['order_id'],
+            'email' => $this->_order_info['email'],
             'Receipt' => $receipt,
             'Desc' => $this->_details,
+            'shp_label' => 'official_cscart',
             'SignatureValue' => $crc,
             'Culture' => CART_LANGUAGE,
         ];

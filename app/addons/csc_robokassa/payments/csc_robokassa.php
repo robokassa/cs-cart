@@ -8,7 +8,7 @@ defined('BOOTSTRAP') or die('Access denied');
 /** @var string $mode **/
 if (defined('PAYMENT_NOTIFICATION')) {
     if (empty($_REQUEST['SignatureValue']) || empty($_REQUEST['InvId']) || (empty($_REQUEST['OutSum']) && $mode != 'cancel')) {
-        die('Access denied');
+        die('Access denied2');
     }
 
     if (!empty($_REQUEST['OrderID'])) {
@@ -22,7 +22,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
     $processor_data = fn_get_processor_data($payment_id);
 
     if ($mode === 'result') {
-        $string = $_REQUEST['OutSum'] . ':' . $_REQUEST['InvId'] . ':' . $processor_data['processor_params']['password2'];
+        $string = $_REQUEST['OutSum'] . ':' . $_REQUEST['InvId'] . ':' . $processor_data['processor_params']['password2'] . ':' . 'shp_label=official_cscart';
         if (!empty($_REQUEST['OrderID'])) {
             $string .= ':OrderID=' . $order_id;
         }
