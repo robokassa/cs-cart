@@ -155,3 +155,19 @@ msgstr "Расчётная ставка 18/118"
 msgctxt "Languages::csc_vat120"
 msgid "VAT 20/120"
 msgstr "Расчётная ставка 20/120"
+
+msgctxt "Languages::csc_vat5"
+msgid "VAT 5%"
+msgstr "НДС 5%"
+
+msgctxt "Languages::csc_vat7"
+msgid "VAT 7%"
+msgstr "НДС 7%"
+
+msgctxt "Languages::csc_vat105"
+msgid "VAT 5/105"
+msgstr "Расчётная ставка 5/105"
+
+msgctxt "Languages::csc_vat107"
+msgid "VAT 7/107"
+msgstr "Расчётная ставка 7/107"
