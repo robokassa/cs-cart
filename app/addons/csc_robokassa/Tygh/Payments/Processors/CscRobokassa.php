@@ -349,7 +349,7 @@ class CscRobokassa {
         return db_get_field('select csc_robokassa_merchant_id from ?:companies where company_id = ?i', $company_id);
     }
 
-    private function truncateItemReceiptName($name, $length = 64, $suffix = '...') {
+    private function truncateItemReceiptName($name, $length = 128, $suffix = '...') {
         $name = preg_replace('/[^0-9a-zA-Zа-яА-Я-,. ]/ui', '', $name);
 
         if (function_exists('mb_strlen') && mb_strlen($name, 'UTF-8') > $length) {
