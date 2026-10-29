@@ -53,6 +53,10 @@ function fn_csc_robokassa_uninstall() {
 }
 
 function fn_csc_allow_robokassa_split($cart) {
+    if (empty($cart['product_groups'])) {
+        return false;
+    }
+
     foreach($cart['product_groups'] as $group) {
         if (!(bool) db_get_row('select csc_robokassa_split, csc_robokassa_merchant_id from ?:companies where company_id = ?i and csc_robokassa_split = "Y" and not csc_robokassa_merchant_id = ""', $group['company_id'])) {
             return false;

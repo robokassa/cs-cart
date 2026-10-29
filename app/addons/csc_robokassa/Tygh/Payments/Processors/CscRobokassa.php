@@ -52,10 +52,9 @@ class CscRobokassa {
                 ];
             }
         }
-        //shipping
-        foreach (@$this->_order_info['shipping'] as $shipping) {
-            $tax_id = current(array_keys($shipping['taxes']));
-            $tax_sum = $shipping['taxes'][$tax_id]['tax_subtotal'];
+        // доставка
+        foreach ($this->_order_info['shipping'] ?? [] as $shipping) {
+            list($tax, $tax_sum) = $this->getShippingTax($shipping);
             $sum = number_format($shipping['rate'] + $tax_sum, 2, '.', '');
             $receipt_result['items'][] = [
                 'name' => __("shipping"),
@@ -169,18 +168,9 @@ class CscRobokassa {
         if ($include_shipping != "Y") {
             $this->calculateMerchantsCommission($merchants);
         }
-        //shipping
-        foreach (@$this->_order_info['shipping'] as $shipping) {
-            if (!empty($shipping['taxes'])) {
-                $tax_id = current(array_keys($shipping['taxes']));
-                if (!empty($tax_id)) {
-                    $tax = fn_get_tax($tax_id);
-                    $tax_sum = $shipping['taxes'][$tax_id]['tax_subtotal'];
-                }
-            }
-            else {
-                $tax_sum = 0;
-            }
+        // доставка
+        foreach ($this->_order_info['shipping'] ?? [] as $shipping) {
+            list($tax, $tax_sum) = $this->getShippingTax($shipping);
             $company_id = $this->_order_info['product_groups'][$shipping['group_key']]['company_id'];
             $sum = number_format($shipping['rate'] + $tax_sum, 2, '.', '');
             $merchants[$company_id]['receipt']['items']['shipping'] = [
@@ -266,6 +256,16 @@ class CscRobokassa {
             'Signature' => $crc
         ];
         fn_create_payment_form($url, $data, 'Robokassa server');
+    }
+
+    private function getShippingTax($shipping) {
+        if (empty($shipping['taxes'])) {
+            return [[], 0];
+        }
+
+        $tax_id = current(array_keys($shipping['taxes']));
+
+        return [fn_get_tax($tax_id), $shipping['taxes'][$tax_id]['tax_subtotal'] ?? 0];
     }
 
     private function calculateTaxesAndDiscounts() {
